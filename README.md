@@ -81,10 +81,11 @@
    );
    
    -- Order_Items Table
-# Esta es la tabla intermedia que actua como nexo entre las tablas de pedidos y productos, ya que el vínculo entre estas tablas es muchos a muchos.
+# Esta es la tabla intermedia que actua como nexo entre las tablas de Order y products, ya que el vínculo entre estas tablas es muchos a muchos.
 # Esto se debe a que un producto puede aprecer en varios pedidos y cada pedido puede tener muchos productos.
 # Esta tabla tiene dos relaciones.
-# Productos con pedidos
+# Products con Order_Items. Relación uno a muchos. 
+# Order con Order_Items. Relación uno a muchos. 
 
 CREATE TABLE Order_Items (
        order_item_id INT PRIMARY KEY AUTO_INCREMENT,
