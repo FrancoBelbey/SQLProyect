@@ -156,40 +156,60 @@ CREATE TABLE Order_Items (
  ``` 
 4. Querys a la base de datos para obtener datos relevantes.
 
- 4.1. Productos con una media de precio por unidad mayor a 100.
+ 
+<details>
+  <summary>4.1. Productos con una media de precio por unidad mayor a 100.</summary>
+ 
  ```sql
  SELECT category_id, AVG(unit_price) AS avg_price
  FROM Products
  GROUP BY category_id
  HAVING avg_price > 100;
  ```
- 4.2.Proovedores con 2 o más productos
+</details>
+
+ <details>
+  <summary> 4.2.Proovedores con 2 o más productos</summary>
+ 
  ```sql
- SELECT s.name, COUNT(p.product_id) AS product_count
- FROM Suppliers s
- JOIN Products p ON s.supplier_id = p.supplier_id
- GROUP BY s.name
- HAVING product_count >= 2;
+   SELECT s.name, COUNT(p.product_id) AS product_count
+   FROM Suppliers s
+   JOIN Products p ON s.supplier_id = p.supplier_id
+   GROUP BY s.name
+   HAVING product_count >= 2;
  ```
- 4.3.Nombre y precio unidad teniendo en cuenta su id y el precio (en este caso precio mayor que 50 y que el id sea 1)
+</details>
+
+<details>
+  <summary>4.3.Nombre y precio unidad teniendo en cuenta su id y el precio (en este caso precio mayor que 50 y que el id sea 1) </summary>
+ 
  ```sql
  SELECT name, unit_price
  FROM Products
  WHERE unit_price > 50 AND category_id = 1;
  ```
- 4.4. Cuantos registros hay en el inventario (aunque solo muestra el id del producto,cantidad y localización) teniendo en cuenta que la cantidad es menor que 50
+</details>
+<details>
+<summary> 4.4. Cuantos registros hay en el inventario (aunque solo muestra el id del producto,cantidad y localización) teniendo en cuenta que la cantidad es menor que 50</summary>
+  
  ```sql
  SELECT product_id, quantity, location
  FROM Inventory
  WHERE quantity < 50;
  ```
- 4.5. Muestra el nombre y el precio por unidad de los 5 productos mas caros.
+   </details>
+
+   <details>
+<summary>4.5. Muestra el nombre y el precio por unidad de los 5 productos mas caros.</summary>
+     
  ```sql
  SELECT name, unit_price
  FROM Products
  ORDER BY unit_price DESC
  LIMIT 5;
  ```
+   </details>
+   
  4.6. Muestra el top 3 proovedores agrupandolo por nombre de proovedor y ordenandolo por ganancia total.
  ```sql
  SELECT s.name, SUM(oi.quantity * oi.unit_price) AS total_revenue
@@ -256,6 +276,7 @@ CREATE TABLE Order_Items (
  
  ```
  4.14. Muestra los tres provedores que más ganacia que generan.
+ 
  ```sql
  SELECT s.name AS supplier_name, SUM(oi.quantity * oi.unit_price) AS total_revenue
  FROM Suppliers s
