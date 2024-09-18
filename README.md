@@ -6,8 +6,9 @@
 
 ![imagen](https://github.com/user-attachments/assets/1f3d970d-4e19-4bd1-bb73-30c94c0e014d)
 
-
-2. Creacion de las Tablas en lenguage SQL. (Ordenados para que no den conflictos de relaciones).
+<details>
+<summary>2. Creacion de las Tablas en lenguage SQL. (Ordenados para que no den conflictos de relaciones).</summary>
+  
   ```sql
   
    -- Categories Table
@@ -96,9 +97,10 @@ CREATE TABLE Order_Items (
        FOREIGN KEY (order_id) REFERENCES Orders(order_id),
        FOREIGN KEY (product_id) REFERENCES Products(product_id)
    );
- ``` 
-
-3. Codigos de inserción de datos (Ordenados por tablas)
+ ```
+</details>
+<details>
+<summary>3. Codigos de inserción de datos (Ordenados por tablas)</summary>
  
   ```sql
  INSERT INTO Categories (name, description) VALUES
@@ -153,7 +155,8 @@ CREATE TABLE Order_Items (
  (4, 7, 4, 3.99),
  (5, 9, 10, 29.99);
  
- ``` 
+ ```
+</details>
 4. Querys a la base de datos para obtener datos relevantes.
 
  
@@ -209,8 +212,9 @@ CREATE TABLE Order_Items (
  LIMIT 5;
  ```
    </details>
-   
- 4.6. Muestra el top 3 proovedores agrupandolo por nombre de proovedor y ordenandolo por ganancia total.
+  <details>
+<summary> 4.6. Muestra el top 3 proovedores agrupandolo por nombre de proovedor y ordenandolo por ganancia total.</summary>
+    
  ```sql
  SELECT s.name, SUM(oi.quantity * oi.unit_price) AS total_revenue
  FROM Suppliers s
@@ -222,14 +226,21 @@ CREATE TABLE Order_Items (
  LIMIT 3;
  
  ```
- 4.7. Muestra el id de los pedidos, el estado y su coste total teniendo en cuenta que su coste total es mayor que 500 y el cual su estado sea Shipped.
+  </details> 
+
+<details>
+<summary>4.7. Muestra el id de los pedidos, el estado y su coste total teniendo en cuenta que su coste total es mayor que 500 y el cual su estado sea Shipped.</summary>   
+  
  ```sql
  SELECT o.order_id, o.total_amount, o.status
  FROM Orders o
  WHERE o.total_amount > 500
  HAVING o.status = 'Shipped';
  ```
- 4.8.Muestrame los 10 primeros registros del nombre de los productos y la cantidad del inventario teniendo en cuenta su relación y que la catidad tiene que ser mayor que 20
+  </details>
+  <details>
+<summary>  4.8.Muestrame los 10 primeros registros del nombre de los productos y la cantidad del inventario teniendo en cuenta su relación y que la catidad tiene que ser mayor que 20</summary> 
+    
  ```sql
  SELECT p.name, i.quantity
  FROM Products p
@@ -237,13 +248,19 @@ CREATE TABLE Order_Items (
  WHERE i.quantity > 20
  LIMIT 10;
  ```
- 4.9.Muestra el número total de productos en el inventario. 
+</details>
+<details>
+<summary>  4.9.Muestra el número total de productos en el inventario. </summary> 
+  
  ```sql
  SELECT COUNT(*) AS total_products_in_inventory
  FROM Inventory;
  
  ```
- 4.10. Muestra la cantidad de productos, del mismo tipo, que existen en el inventario.
+</details>
+<details>
+<summary>  4.10. Muestra la cantidad de productos, del mismo tipo, que existen en el inventario.</summary> 
+  
  ```sql
  SELECT p.name, SUM(i.quantity) AS total_quantity
  FROM Products p
@@ -251,7 +268,10 @@ CREATE TABLE Order_Items (
  GROUP BY p.name;
  
  ```
- 4.11. Precio medio de cada producto por categorías.
+</details>
+<details>
+<summary>  4.11. Precio medio de cada producto por categorías.</summary> 
+  
  ```sql
  SELECT c.name AS category_name, AVG(p.unit_price) AS avg_unit_price
  FROM Products p
@@ -259,7 +279,10 @@ CREATE TABLE Order_Items (
  GROUP BY c.name;
  
  ```
- 4.12. Muestra los productos ofrecidos por cada provedor, ordenándolos de más caros a más baratos. 
+</details>
+<details>
+<summary>  4.12. Muestra los productos ofrecidos por cada provedor, ordenándolos de más caros a más baratos. </summary> 
+  
  ```sql
  SELECT s.name AS supplier_name, MAX(p.unit_price) AS max_price
  FROM Products p
@@ -267,7 +290,10 @@ CREATE TABLE Order_Items (
  GROUP BY s.name;
  
  ```
- 4.13. Muestra los productos más baratos por cada categoría.
+</details>
+<details>
+<summary>  4.13. Muestra los productos más baratos por cada categoría.</summary> 
+
  ```sql
  SELECT c.name AS category_name, MIN(p.unit_price) AS min_price
  FROM Products p
@@ -275,7 +301,10 @@ CREATE TABLE Order_Items (
  GROUP BY c.name;
  
  ```
- 4.14. Muestra los tres provedores que más ganacia que generan.
+</details>
+<details>
+
+<summary>  4.14. Muestra los tres provedores que más ganacia que generan.</summary> 
  
  ```sql
  SELECT s.name AS supplier_name, SUM(oi.quantity * oi.unit_price) AS total_revenue
@@ -284,7 +313,11 @@ CREATE TABLE Order_Items (
  JOIN Order_Items oi ON p.product_id = oi.product_id
  GROUP BY s.name order by total_revenue desc limit 3;
  ```
- 4.15. Muestra el numero totaal de productos agrupados por categoria 
+</details>
+<details>
+
+<summary>  4.15. Muestra el numero totaal de productos agrupados por categoria </summary> 
+
  ```sql
  SELECT c.name AS category_name, SUM(oi.quantity * oi.unit_price) AS total_revenue
  FROM Products p
@@ -292,3 +325,5 @@ CREATE TABLE Order_Items (
  JOIN Order_Items oi ON p.product_id = oi.product_id
  GROUP BY c.name;
  ```
+</details>
+
