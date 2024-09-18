@@ -7,7 +7,7 @@
 ![imagen](https://github.com/user-attachments/assets/1f3d970d-4e19-4bd1-bb73-30c94c0e014d)
 
 <details>
-<summary><h2>2. Creacion de las Tablas en lenguage SQL. (Ordenados para que no den conflictos de relaciones).</h2></summary>
+<summary><h2> 2. Creacion de las Tablas en lenguage SQL. (Ordenados para que no den conflictos de relaciones).</h2></summary>
   
   ```sql
   
@@ -99,6 +99,7 @@ CREATE TABLE Order_Items (
    );
  ```
 </details>
+
 <details>
 <summary><h2>3. Codigos de inserción de datos (Ordenados por tablas)</h2></summary>
  
