@@ -11,6 +11,7 @@
   ```sql
   
    -- Categories Table
+> [!NOTE]
    # Esta tabla no tiene relaciones.
 
    CREATE TABLE Categories (
@@ -21,6 +22,7 @@
 
 
    -- Suppliers Table
+> [!NOTE]
   # Esta tabla no tiene relaciones.
 
    CREATE TABLE Suppliers (
@@ -32,7 +34,8 @@
        address TEXT
    );
 
- --  Products Table
+ --  Products Tableç
+> [!NOTE]
  # Esta tabla tiene dos relaciones.
  # Productos con categorias. Relacion uno a muchos, porque un producto solo puede tener una categoria
  # y una categoria puede tener muchos productos
