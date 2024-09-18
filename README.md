@@ -2,7 +2,7 @@
 
 # SQLProyect (Franco,Angel,David)
 
-Estructura de la base de datos de un almacen con sus tablas, sus campos y sus relaciones
+Estructura de la base de datos de un almacen con sus tablas, sus campos y sus relaciones (Realizado en drawDB).
 
 ![imagen](https://github.com/user-attachments/assets/1f3d970d-4e19-4bd1-bb73-30c94c0e014d)
 
