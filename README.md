@@ -11,7 +11,7 @@
   ```sql
   
    -- Categories Table
-> [!NOTE]
+
    # Esta tabla no tiene relaciones.
 
    CREATE TABLE Categories (
@@ -22,7 +22,7 @@
 
 
    -- Suppliers Table
-> [!NOTE]
+
   # Esta tabla no tiene relaciones.
 
    CREATE TABLE Suppliers (
@@ -34,8 +34,8 @@
        address TEXT
    );
 
- --  Products Tableç
-> [!NOTE]
+ --  Products Table
+
  # Esta tabla tiene dos relaciones.
  # Productos con categorias. Relacion uno a muchos, porque un producto solo puede tener una categoria
  # y una categoria puede tener muchos productos
@@ -56,9 +56,12 @@
 
 
    -- Inventory Table
+# Esta tabla tiene una relación
+# Inventario con productos. Relación uno a uno, porque cada producto tiene solo un registro en la tabla Inventario,
+# y cada registro en Inventario corresponde a un solo producto.
    CREATE TABLE Inventory (
        inventory_id INT PRIMARY KEY AUTO_INCREMENT,
-       product_id INT,
+       product_id INT UNIQUE,
        quantity INT NOT NULL,
        location VARCHAR(50),
        last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -66,6 +69,8 @@
    );
    
    -- Orders Table
+# Esta tabla tiene una relación.
+# Pedidos con proovedor. Relación uno a muchos, porque un proovedor puede tener uno o muchos pedidos mientras que un pedido es único de cada proovedor.
    CREATE TABLE Orders (
        order_id INT PRIMARY KEY AUTO_INCREMENT,
        supplier_id INT,
@@ -76,7 +81,12 @@
    );
    
    -- Order_Items Table
-   CREATE TABLE Order_Items (
+# Esta es la tabla intermedia que actua como nexo entre las tablas de pedidos y productos, ya que el vínculo entre estas tablas es muchos a muchos.
+# Esto se debe a que un producto puede aprecer en varios pedidos y cada pedido puede tener muchos productos.
+# Esta tabla tiene dos relaciones.
+# Productos con pedidos
+
+CREATE TABLE Order_Items (
        order_item_id INT PRIMARY KEY AUTO_INCREMENT,
        order_id INT,
        product_id INT,
