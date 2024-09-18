@@ -69,6 +69,64 @@ CREATE TABLE Products (
   );
 ``` 
 
+3. Codigos de inserción de datos (Ordenados por tablas)
+
+ ```sql
+INSERT INTO Categories (name, description) VALUES
+('Electronics', 'Devices like phones, laptops, and gadgets'),
+('Furniture', 'Home and office furniture'),
+('Clothing', 'Apparel for men, women, and children'),
+('Food & Beverages', 'Edible items and drinks'),
+('Sports Equipment', 'Gear and equipment for sports');
+
+INSERT INTO Suppliers (name, contact_person, phone, email, address) VALUES
+('Tech Supplies Ltd.', 'John Doe', '123-456-7890', 'johndoe@techsupplies.com', '123 Tech Street, Silicon Valley, CA'),
+('Furniture Co.', 'Jane Smith', '234-567-8901', 'janesmith@furnitureco.com', '456 Wood Avenue, Oak City, TX'),
+('Fashion Hub', 'Emily White', '345-678-9012', 'emily@fashionhub.com', '789 Style Road, New York, NY'),
+('Fresh Foods Inc.', 'Michael Brown', '456-789-0123', 'michael@freshfoods.com', '101 Farm Lane, Greenfield, IL'),
+('Sports World', 'David Green', '567-890-1234', 'david@sportsworld.com', '202 Arena Blvd, Denver, CO');
+
+INSERT INTO Products (name, description, category_id, supplier_id, unit_price) VALUES
+('iPhone 13', 'Latest model of Apple iPhone', 1, 1, 999.99),
+('Laptop', 'High performance laptop for gaming and work', 1, 1, 1299.50),
+('Office Chair', 'Ergonomic office chair with lumbar support', 2, 2, 199.99),
+('Sofa', '3-seater comfortable sofa for living room', 2, 2, 499.99),
+('T-shirt', 'Cotton T-shirt for men', 3, 3, 19.99),
+('Running Shoes', 'Lightweight running shoes', 5, 3, 79.99),
+('Organic Apples', 'Fresh organic apples, 1kg pack', 4, 4, 4.99),
+('Orange Juice', '1L fresh orange juice', 4, 4, 3.49),
+('Basketball', 'Official size basketball', 5, 5, 29.99),
+('Tennis Racket', 'Professional tennis racket', 5, 5, 149.99);
+
+INSERT INTO Inventory (product_id, quantity, location) VALUES
+(1, 50, 'Warehouse A'),
+(2, 30, 'Warehouse B'),
+(3, 20, 'Warehouse C'),
+(4, 15, 'Warehouse A'),
+(5, 100, 'Warehouse B'),
+(6, 75, 'Warehouse C'),
+(7, 200, 'Warehouse A'),
+(8, 180, 'Warehouse B'),
+(9, 60, 'Warehouse C'),
+(10, 40, 'Warehouse A');
+
+INSERT INTO Orders (supplier_id, order_date, total_amount, status) VALUES
+(1, '2024-09-01', 1999.98, 'Shipped'),
+(2, '2024-09-05', 699.98, 'Pending'),
+(3, '2024-09-10', 999.95, 'Delivered'),
+(4, '2024-09-12', 15.96, 'Processing'),
+(5, '2024-09-15', 299.98, 'Shipped');
+
+INSERT INTO Order_Items (order_id, product_id, quantity, unit_price) VALUES
+(1, 1, 2, 999.99),
+(2, 3, 2, 199.99),
+(3, 5, 5, 19.99),
+(4, 7, 4, 3.99),
+(5, 9, 10, 29.99);
+
+``` 
+
+
 1. Productos con una media de precio por unidad mayor a 100.
 ```sql
 SELECT category_id, AVG(unit_price) AS avg_price
