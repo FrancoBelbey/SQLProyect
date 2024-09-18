@@ -16,7 +16,7 @@
        name VARCHAR(50) NOT NULL,z
        description TEXT
    );
-   > esta tabla no tiene relaciones
+   # esta tabla no tiene relaciones
 
    -- Suppliers Table
    CREATE TABLE Suppliers (
