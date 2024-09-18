@@ -6,6 +6,7 @@
 
 ![imagen](https://github.com/user-attachments/assets/1f3d970d-4e19-4bd1-bb73-30c94c0e014d)
 
+
 2. Creacion de las Tablas en lenguage SQL. (Ordenados para que no den conflictos de relaciones).
   ```sql
   
@@ -15,7 +16,8 @@
        name VARCHAR(50) NOT NULL,z
        description TEXT
    );
-   
+   > esta tabla no tiene relaciones
+
    -- Suppliers Table
    CREATE TABLE Suppliers (
        supplier_id INT PRIMARY KEY AUTO_INCREMENT,
