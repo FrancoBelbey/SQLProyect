@@ -16,7 +16,7 @@
        name VARCHAR(50) NOT NULL,z
        description TEXT
    );
-   # esta tabla no tiene relaciones
+   # Esta tabla no tiene relaciones.
 
    -- Suppliers Table
    CREATE TABLE Suppliers (
@@ -27,6 +27,8 @@
        email VARCHAR(100),
        address TEXT
    );
+  # Esta tabla no tiene relaciones.
+
  --  Products Table
  CREATE TABLE Products (
        product_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,7 +40,11 @@
        FOREIGN KEY (category_id) REFERENCES Categories(category_id),
        FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id)
    );
-   
+
+  # Esta tabla tiene dos relaciones.
+  # Productos con categorias. Relacion uno a muchos, porque un producto solo puede tener una categoria y una categoria puede tener muchos productos
+
+
    -- Inventory Table
    CREATE TABLE Inventory (
        inventory_id INT PRIMARY KEY AUTO_INCREMENT,
