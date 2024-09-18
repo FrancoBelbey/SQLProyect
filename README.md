@@ -2,10 +2,72 @@
 
 # SQLProyect (Franco,Angel,David)
 
-Estructura de la base de datos de un almacen con sus tablas, sus campos y sus relaciones (Realizado en drawDB).
+1. Estructura de la base de datos de un almacen con sus tablas, sus campos y sus relaciones (Realizado en drawDB).
 
 ![imagen](https://github.com/user-attachments/assets/1f3d970d-4e19-4bd1-bb73-30c94c0e014d)
 
+2. Creacion de las Tablas en lenguage SQL. (Ordenados para que no den conflictos de relaciones).
+ ```sql
+ 
+  -- Categories Table
+  CREATE TABLE Categories (
+      category_id INT PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(50) NOT NULL,z
+      description TEXT
+  );
+  
+  -- Suppliers Table
+  CREATE TABLE Suppliers (
+      supplier_id INT PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(100) NOT NULL,
+      contact_person VARCHAR(100),
+      phone VARCHAR(20),
+      email VARCHAR(100),
+      address TEXT
+  );
+--  Products Table
+CREATE TABLE Products (
+      product_id INT PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(100) NOT NULL,
+      description TEXT,
+      category_id INT,
+      supplier_id INT,
+      unit_price DECIMAL(10, 2) NOT NULL,
+      FOREIGN KEY (category_id) REFERENCES Categories(category_id),
+      FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id)
+  );
+  
+  -- Inventory Table
+  CREATE TABLE Inventory (
+      inventory_id INT PRIMARY KEY AUTO_INCREMENT,
+      product_id INT,
+      quantity INT NOT NULL,
+      location VARCHAR(50),
+      last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      FOREIGN KEY (product_id) REFERENCES Products(product_id)
+  );
+  
+  -- Orders Table
+  CREATE TABLE Orders (
+      order_id INT PRIMARY KEY AUTO_INCREMENT,
+      supplier_id INT,
+      order_date DATE NOT NULL,
+      total_amount DECIMAL(10, 2) NOT NULL,
+      status VARCHAR(20) NOT NULL,
+      FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id)
+  );
+  
+  -- Order_Items Table
+  CREATE TABLE Order_Items (
+      order_item_id INT PRIMARY KEY AUTO_INCREMENT,
+      order_id INT,
+      product_id INT,
+      quantity INT NOT NULL,
+      unit_price DECIMAL(10, 2) NOT NULL,
+      FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+      FOREIGN KEY (product_id) REFERENCES Products(product_id)
+  );
+``` 
 
 1. Productos con una media de precio por unidad mayor a 100.
 ```sql
