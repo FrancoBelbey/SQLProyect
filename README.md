@@ -11,7 +11,7 @@
   ```sql
   
    -- Categories Table
-         # Esta tabla no tiene relaciones.
+   # Esta tabla no tiene relaciones.
 
    CREATE TABLE Categories (
        category_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,7 +21,7 @@
 
 
    -- Suppliers Table
-        # Esta tabla no tiene relaciones.
+  # Esta tabla no tiene relaciones.
 
    CREATE TABLE Suppliers (
        supplier_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,9 +33,11 @@
    );
 
  --  Products Table
-      # Esta tabla tiene dos relaciones.
-      # Productos con categorias. Relacion uno a muchos, porque un producto solo puede tener una categoria y una categoria puede tener muchos productos
-      # Productos con Suppliers. Relacion uno a muchos, porque un producto solo puede tener un Supplier y un Supplier puede tener mucho productos
+ # Esta tabla tiene dos relaciones.
+ # Productos con categorias. Relacion uno a muchos, porque un producto solo puede tener una categoria
+ # y una categoria puede tener muchos productos
+ # Productos con Suppliers. Relacion uno a muchos, porque un producto solo puede tener un Supplier
+ # y un Supplier puede tener muchos productos
 
  CREATE TABLE Products (
        product_id INT PRIMARY KEY AUTO_INCREMENT,
