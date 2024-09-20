@@ -242,6 +242,10 @@ CREATE TABLE Order_Items (
  FROM Orders o
  WHERE o.total_amount > 500
  HAVING o.status = 'Shipped';
+
+![Captura desde 2024-09-20 09-29-03](https://github.com/user-attachments/assets/ba686c46-9082-42ea-942d-f96a8cb44e4e)
+
+
  ```
   </details>
   <details>
@@ -283,6 +287,10 @@ CREATE TABLE Order_Items (
  FROM Products p
  JOIN Categories c ON p.category_id = c.category_id
  GROUP BY c.name;
+
+
+  ![Captura desde 2024-09-20 09-27-17](https://github.com/user-attachments/assets/67b0f452-0561-46a2-9497-38ae4349b233)
+
  
  ```
 </details>
@@ -318,6 +326,10 @@ CREATE TABLE Order_Items (
  JOIN Products p ON s.supplier_id = p.supplier_id
  JOIN Order_Items oi ON p.product_id = oi.product_id
  GROUP BY s.name order by total_revenue desc limit 3;
+
+![Captura desde 2024-09-20 09-27-50](https://github.com/user-attachments/assets/aa355dd2-5afe-4bda-9747-cf3139c08dd0)
+
+
  ```
 </details>
 <details>
@@ -334,5 +346,8 @@ CREATE TABLE Order_Items (
 </details>
 
 </details>
+
+
+
 
 
