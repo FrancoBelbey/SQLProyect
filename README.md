@@ -243,10 +243,10 @@ CREATE TABLE Order_Items (
  WHERE o.total_amount > 500
  HAVING o.status = 'Shipped';
 
-![Captura desde 2024-09-20 09-29-03](https://github.com/user-attachments/assets/ba686c46-9082-42ea-942d-f96a8cb44e4e)
-
 
  ```
+![Captura desde 2024-09-20 09-29-03](https://github.com/user-attachments/assets/ba686c46-9082-42ea-942d-f96a8cb44e4e)
+
   </details>
   <details>
 <summary>  4.8.Muestrame los 10 primeros registros del nombre de los productos y la cantidad del inventario teniendo en cuenta su relación y que la catidad tiene que ser mayor que 20</summary> 
@@ -289,10 +289,10 @@ CREATE TABLE Order_Items (
  GROUP BY c.name;
 
 
-  ![Captura desde 2024-09-20 09-27-17](https://github.com/user-attachments/assets/67b0f452-0561-46a2-9497-38ae4349b233)
 
  
  ```
+  ![Captura desde 2024-09-20 09-27-17](https://github.com/user-attachments/assets/67b0f452-0561-46a2-9497-38ae4349b233)
 </details>
 <details>
 <summary>  4.12. Muestra los productos ofrecidos por cada provedor, ordenándolos de más caros a más baratos. </summary> 
@@ -327,10 +327,10 @@ CREATE TABLE Order_Items (
  JOIN Order_Items oi ON p.product_id = oi.product_id
  GROUP BY s.name order by total_revenue desc limit 3;
 
-![Captura desde 2024-09-20 09-27-50](https://github.com/user-attachments/assets/aa355dd2-5afe-4bda-9747-cf3139c08dd0)
 
 
  ```
+![Captura desde 2024-09-20 09-27-50](https://github.com/user-attachments/assets/aa355dd2-5afe-4bda-9747-cf3139c08dd0)
 </details>
 <details>
 
